@@ -22,6 +22,7 @@ export interface PropertySchema {
   description?: string;
   enum?: string[];
   items?: { type: string };
+  properties?: Record<string, PropertySchema>;
 }
 
 export interface ToolResult {

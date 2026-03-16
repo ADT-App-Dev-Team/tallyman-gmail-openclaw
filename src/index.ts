@@ -13,11 +13,11 @@ export default {
   id: "openclaw-gmail",
   register(api: PluginApi) {
     const baseUrl =
-      api.config.baseUrl ||
-      process.env.TALLYMAN_BASE_URL ||
+      api.config.baseUrl ??
+      process.env.TALLYMAN_BASE_URL ??
       "https://api.tallyman.io";
 
-    const apiKey = api.config.apiKey || process.env.TALLYMAN_API_KEY;
+    const apiKey = api.config.apiKey ?? process.env.TALLYMAN_API_KEY;
 
     if (!apiKey) {
       throw new Error(

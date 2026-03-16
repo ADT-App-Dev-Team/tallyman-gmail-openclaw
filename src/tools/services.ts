@@ -39,6 +39,7 @@ export function registerServiceTools(api: PluginApi, client: TallymanClient) {
         headers: {
           type: "object",
           description: "Optional extra headers",
+          properties: {},
         },
         body: {
           type: "string",
