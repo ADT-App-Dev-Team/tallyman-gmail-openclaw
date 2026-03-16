@@ -5,9 +5,12 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": ["dist"],
+  "openclaw": {
+    "extensions": ["./dist/index.js"]
+  },
   "scripts": {
-    "build": "tsc",
-    "prepare": "tsc",
+    "build": "tsc && cp openclaw.plugin.json dist/",
+    "prepare": "tsc && cp openclaw.plugin.json dist/",
     "test": "vitest run",
     "test:watch": "vitest",
     "dev": "tsc --watch"
