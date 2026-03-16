@@ -1,5 +1,5 @@
 {
-  "id": "@tallyman/openclaw-gmail",
+  "id": "openclaw-gmail",
   "configSchema": {
     "type": "object",
     "additionalProperties": false,

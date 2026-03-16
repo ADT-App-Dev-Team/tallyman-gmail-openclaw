@@ -9,31 +9,34 @@ import { registerDraftTools } from "./tools/drafts";
 import { registerAttachmentTools } from "./tools/attachments";
 import { registerServiceTools } from "./tools/services";
 
-export function register(api: PluginApi) {
-  const baseUrl =
-    api.config.baseUrl ||
-    process.env.TALLYMAN_BASE_URL ||
-    "https://api.tallyman.io";
+export default {
+  id: "openclaw-gmail",
+  register(api: PluginApi) {
+    const baseUrl =
+      api.config.baseUrl ||
+      process.env.TALLYMAN_BASE_URL ||
+      "https://api.tallyman.io";
 
-  const apiKey = api.config.apiKey || process.env.TALLYMAN_API_KEY;
+    const apiKey = api.config.apiKey || process.env.TALLYMAN_API_KEY;
 
-  if (!apiKey) {
-    throw new Error(
-      "Tallyman API key required. Set TALLYMAN_API_KEY env var or pass apiKey in plugin config.",
-    );
-  }
+    if (!apiKey) {
+      throw new Error(
+        "Tallyman API key required. Set TALLYMAN_API_KEY env var or pass apiKey in plugin config.",
+      );
+    }
 
-  const client = new TallymanClient(baseUrl, apiKey);
+    const client = new TallymanClient(baseUrl, apiKey);
 
-  registerAccountTools(api, client);
-  registerMessageTools(api, client);
-  registerSearchTools(api, client);
-  registerLabelTools(api, client);
-  registerThreadTools(api, client);
-  registerDraftTools(api, client);
-  registerAttachmentTools(api, client);
-  registerServiceTools(api, client);
-}
+    registerAccountTools(api, client);
+    registerMessageTools(api, client);
+    registerSearchTools(api, client);
+    registerLabelTools(api, client);
+    registerThreadTools(api, client);
+    registerDraftTools(api, client);
+    registerAttachmentTools(api, client);
+    registerServiceTools(api, client);
+  },
+};
 
 export { TallymanClient, TallymanError } from "./client";
 export type { PluginApi, ToolDefinition, ToolResult } from "./types";
