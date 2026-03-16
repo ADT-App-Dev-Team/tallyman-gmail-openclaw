@@ -12,7 +12,9 @@ export function registerServiceTools(api: PluginApi, client: TallymanClient) {
     },
     handler: async () => {
       const result = await client.listServices();
-      return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+      return {
+        content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+      };
     },
   });
 
@@ -39,6 +41,7 @@ export function registerServiceTools(api: PluginApi, client: TallymanClient) {
         headers: {
           type: "object",
           description: "Optional extra headers",
+          properties: {},
           additionalProperties: { type: "string" },
         },
         body: {
@@ -56,7 +59,9 @@ export function registerServiceTools(api: PluginApi, client: TallymanClient) {
         headers: args.headers,
         body: args.body,
       });
-      return { content: [{ type: "text", text: JSON.stringify(result, null, 2) }] };
+      return {
+        content: [{ type: "text", text: JSON.stringify(result, null, 2) }],
+      };
     },
   });
 }
