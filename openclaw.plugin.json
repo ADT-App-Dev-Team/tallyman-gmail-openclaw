@@ -1,0 +1,19 @@
+{
+  "name": "@tallyman/openclaw-gmail",
+  "version": "0.1.0",
+  "description": "Access email inboxes through the Tallyman API — list, search, send, reply, forward, and manage messages, threads, drafts, labels, and attachments.",
+  "main": "dist/index.js",
+  "primaryEnv": "TALLYMAN_API_KEY",
+  "config": {
+    "apiKey": {
+      "type": "string",
+      "description": "Tallyman API key (tk_*). Falls back to TALLYMAN_API_KEY env var.",
+      "required": false
+    },
+    "baseUrl": {
+      "type": "string",
+      "description": "Tallyman API base URL. Falls back to TALLYMAN_BASE_URL env var, then https://api.tallyman.io.",
+      "required": false
+    }
+  }
+}
